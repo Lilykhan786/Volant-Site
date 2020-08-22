@@ -1,0 +1,84 @@
+#main{
+    width: 100%;
+    height: 100%;
+}
+
+.hero{
+    position: relative;
+    margin-top:70px;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #F6F6F6;
+}
+
+.hero h1{
+    font-size: 5em;
+    letter-spacing: 1.6px;
+    color: #333;
+    background: linear-gradient(to top, #000000, #333333, #505050);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p{
+    font-size: 1.1em;
+}
+
+.btns{
+    margin-top: 10px;
+}
+
+.about{
+    text-align: center;
+    margin: 40px;
+}
+
+section {
+    padding: 20px;
+    width: 370px;
+}
+
+.points {
+    display: flex;
+   justify-content: center;
+}
+
+h3{
+    font-size: 2em;
+    margin: 10px;
+
+ }
+
+.about h4{
+    font-size: 1.1em;
+}
+
+.about p{
+    font-size: 1em;
+    margin: 10px;
+}
+
+.what{
+    padding: 40px;
+}
+.why{
+    margin: 40px 0;
+}
+
+.bottom{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--header-background);
+}
+
+.bottom h4{
+    margin-bottom: 10px;
+}
