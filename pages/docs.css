@@ -1,0 +1,110 @@
+.docs{
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+#docs_Likns{
+    background: var(--header-background);
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: calc(100% - 70px);
+    width: 200px;
+    z-index: 1; 
+}
+
+nav ul{
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px 5px;
+}
+
+#docs_Likns li {
+  padding: 5px 10px ;
+}
+
+#docs_Likns a.docs-link {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--fonts-color);
+  font-family: var(--main-font-family);
+  font-size: 1em;
+}
+
+
+#main-doc{
+    margin:0 auto;
+    height: 100%;
+    max-width: 700px;
+    position: relative;
+    left: 100px;
+    top:70px;
+    padding: 40px ;  
+}
+.main-section{
+
+    padding: 20px 0;
+}
+.main-section p{
+
+}
+.main-section h2{
+    text-transform: capitalize;
+}
+code{
+    color: var(--decor-color);
+    background: var(--header-background);
+    border-radius: 2px;
+    /* white-space: nowrap; */
+}
+pre-code{
+    margin-top: 20px;
+    overflow-x: auto;
+    color: var(--decor-color);
+    background: var(--header-background);
+    white-space: pre;
+    padding: 10px;
+    font-size: 0.9em;
+    line-height: 1.8em;
+    display: block;
+}
+
+docs-link{
+
+}
+#main-doc section{
+
+}
+.main-section article{
+
+}
+main{
+
+}
+
+article {
+
+}
+
+ @media only screen and (max-width: 1000px) {
+    #main-doc{
+    width: 65%;
+}
+} 
+
+
+
+ @media only screen and (max-width: 800px){
+    #docs_Likns{ 
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0, 1);
+    -webkit-transform: translate(-280px, 0); 
+    transform: translate(-280px, 0);
+}
+    #main-doc{
+        margin: 0 auto;
+        left : 0;
+        width: 80%;
+    }
+ }

@@ -3,12 +3,12 @@
 :root{
 	--background: #fefefe;
 	--fonts-color: #000000;
-	--decor-color:#303030;
+	--decor-color:#7235d3;
     --header-background:#F6F6F6;
 	--main-font-family: 'Poppins', sans-serif;
     --style-font-family: 'Tenor Sans', sans-serif;
     --button-font-family: Arial, Helvetica, sans-serif; 
-    --heading-font-family: 'Times New Roman', Times, serif;
+    --heading-font-family: 'Poppins', sans-serif;
 }
 
 *{
@@ -42,7 +42,8 @@ button{
     width: 150px;
     height: 40px;
     margin: 3px;
-    border: 2px solid #303030;
+    border: none;
+    /* border: 2px solid #303030; */
     cursor: pointer;
     font-family: var(--button-font-family);
 }
@@ -52,10 +53,13 @@ button:focus{
 }
 
 .btn-1{
-    background: #303030;
-    color: #F6F6F6;
+    background: var(--decor-color);
+    color: #efefef;
+    box-shadow: 0 2px 10px 0 #9900ff63;
 }
-
+.btn-2{
+    box-shadow: 0 2px 10px 0 #8080806b;
+}
 
 /*────────────────── 
        header
@@ -159,7 +163,7 @@ footer {
 .hamburger div{
 	width: 30px;
 	height: 3px;
-	background: #dbdbdb;
+	background: var(--decor-color);
 	margin: 5px;
 	transition:all 0.3s ease;
 }
@@ -180,3 +184,4 @@ footer {
 	}	
 
 }
+
