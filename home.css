@@ -57,7 +57,7 @@ h3{
     font-size: 2em;
     margin: 10px;
 
- }
+}
 
 .about h4{
     font-size: 1.1em;
@@ -97,7 +97,6 @@ h3{
     flex-wrap: wrap;
 }
 
-
 .links{
     display: flex;
     flex-direction: row;
@@ -110,67 +109,34 @@ h3{
 .links h6{
     margin: 10px;
     font-size: .9em;
+    border-bottom: 2px solid transparent;
 }
+
 .bottom h4{
     margin: 10px;
 }
 
-@media screen and (min-width: 1070px){
-    .bottom-btns section{
-        width: 350px;
- }
-}
-@media screen and (max-width: 1070px){
-    .bottom-btns section{
-        width: 300px;
- }
-.bottom h4{
-     margin:10px 0;
- }
-}
-
-@media screen and (max-width: 900px){
-    .about section {   
-    margin: 0 auto;
-    width: 340px;
-    }
-}
-
- @media screen and (max-width: 916px){
-   .bottom{
-        height: 100%;
-    }
-  .bottom-btns section{
-      margin: 10px;
-  }
-} 
- @media screen and (max-width: 400px){
-       .hero h1{
-        font-size: 4em;
-    }
-    .hero p{
-       font-size: 1em;
-    }
-    .about section { 
-        width: 100%;
-    }
+.links h6:hover{
+    border-bottom: 2px solid #7235d3;
+    color: var(--decor-color);
+    font-weight: bold;
 }
 
 .ok div {
-  position: relative;
-  bottom: 20px;
-  width: 100%;
-  background-color: transparent;
-  user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
+    position: relative;
+    bottom: 20px;
+    width: 100%;
+    background-color: transparent;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
 .ok img{
-	  position: absolute;
-		width : 20px;
-        z-index: 0;
+	position: absolute;
+	width : 20px;
+    z-index: 0;
 	
 }
 .ok img:nth-child(1) {
@@ -273,4 +239,47 @@ h3{
     transform: scale(5) translateY(-90px) rotate(360deg);
     opacity: 0;
   }
+}
+
+@media screen and (min-width: 1070px){
+    .bottom-btns section{
+        width: 350px;
+ }
+}
+
+@media screen and (max-width: 1070px){
+    .bottom-btns section{
+        width: 300px;
+    }
+    .bottom h4{
+    margin:10px 0;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .about section {   
+        margin: 0 auto;
+        width: 340px;
+    }
+}
+
+@media screen and (max-width: 916px){
+   .bottom{
+        height: 100%;
+    }
+    .bottom-btns section{
+        margin: 10px;
+  }
+} 
+
+@media screen and (max-width: 400px){
+    .hero h1{
+        font-size: 4em;
+    }
+    .hero p{
+       font-size: 1em;
+    }
+    .about section { 
+        width: 100%;
+    }
 }
