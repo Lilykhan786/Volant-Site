@@ -57,10 +57,17 @@ button:focus{
     color: #efefef;
     box-shadow: 0 2px 10px 0 #9900ff63;
 }
+.btn-1:hover{
+    box-shadow: 0 3px 10px 0 #9900ffa4;
+}
+
 .btn-2{
     box-shadow: 0 2px 10px 0 #8080806b;
 }
 
+.btn-2:hover{
+    box-shadow: 0 3px 10px 0 #808080d3;
+}
 /*────────────────── 
        header
 ──────────────────*/
@@ -80,16 +87,8 @@ header{
     z-index: 50;
 }
 
-.logo{
-    margin-left: 50px;
-    color: var(--fonts-color);
-    font-size: 1em;
-    font-weight: 500;
-    font-family: var(--style-font-family);
-    text-decoration: none;
-    text-transform: uppercase;
-}
 .logo img{
+    margin-left: 50px;
     width: 40px;
 }
 
@@ -100,13 +99,18 @@ header{
 }
 
 a.nav-link{
-	margin: 2px;
-	padding: 5px 10px;
+	padding: 2px;
+	margin: 5px 10px;
 	text-decoration: none;
 	color: var(--main-fonts-color);
 	font-family: var(--main-font-family);
 	cursor: pointer;
 	text-transform: capitalize;
+}
+a.nav-link:hover{
+    border-bottom: 2px solid #7235d3;
+    color: var(--decor-color);
+    font-weight: bold;
 }
 
 .github{

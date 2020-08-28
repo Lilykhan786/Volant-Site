@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="editor.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+  <title>Volant online</title>
+</head>
+<body>
+    	<header>
+		<a class="logo" href="../index.html">
+			<img src="../images/logo.png" alt="logo" />
+		</a>
+
+        <button id="run">Run <span>></span></button>
+
+        <div class="oh">
+        <div class="themeOption">
+            <label for="themes">Theme</label>
+            <select id="themes" size="1" value="textmate">
+            <optgroup label="Bright">
+                <option value="chrome">Chrome</option>
+                <option value="clouds">Clouds</option>
+                <option value="crimson_editor">Crimson Editor</option>
+                <option value="dawn">Dawn</option>
+                <option value="dreamweaver">Dreamweaver</option>
+                <option value="eclipse">Eclipse</option>
+                <option value="github">GitHub</option>
+                <option value="iplastic">IPlastic</option>
+                <option value="solarized_light">Solarized Light</option>
+                <option value="textmate">TextMate</option>
+                <option value="tomorrow">Tomorrow</option>
+                <option value="xcode">Xcode</option>
+                <option value="kuroir">Kuroir</option>
+                <option value="katzenmilch">KatzenMilch</option>
+                <option value="sqlserver">SQL Server</option>
+            </optgroup>
+            <optgroup label="Dark">
+                    <option value="ambiance">Ambiance</option>
+                    <option value="chaos">Chaos</option>
+                    <option value="clouds_midnight">Clouds Midnight</option>
+                    <option value="dracula">Dracula</option>
+                    <option value="cobalt">Cobalt</option>
+                    <option value="gruvbox">Gruvbox</option>
+                    <option value="gob">Green on Black</option>
+                    <option value="idle_fingers">idle Fingers</option>
+                    <option value="kr_theme">krTheme</option>
+                    <option value="merbivore">Merbivore</option>
+                    <option value="merbivore_soft">Merbivore Soft</option>
+                    <option value="mono_industrial">Mono Industrial</option>
+                    <option value="monokai">Monokai</option>
+                    <option value="nord_dark">Nord Dark</option>
+                    <option value="pastel_on_dark">Pastel on dark</option>
+                    <option value="solarized_dark">Solarized Dark</option>
+                    <option value="terminal">Terminal</option>
+                    <option value="tomorrow_night">Tomorrow Night</option>
+                    <option value="tomorrow_night_blue">Tomorrow Night Blue</option>
+                    <option value="tomorrow_night_bright">Tomorrow Night Bright</option>
+                    <option value="tomorrow_night_eighties">Tomorrow Night 80s</option>
+                    <option value="twilight">Twilight</option>
+                    <option value="vibrant_ink">Vibrant Ink</option>
+            </optgroup>
+            </select>
+        </div>
+        
+
+        <a class="github" href="https://github.com/volantlang/volant" target="blank_"><i class="fab fa-github"></i></a>
+        </div>
+	    </header>
+
+  <div id="editor">
+      <div id="outputBox"></div>
+  </div>
+
+  <script src="ace.js"></script>
+  <script src="mode-volant.js"></script>
+
+
+  <script src="theme-dracula.js"></script>
+  <script src="themes/theme-ambiance.js"></script>
+  <script src="themes/theme-chaos.js"></script>
+  <script src="themes/theme-chrome.js"></script>
+  <script src="themes/theme-clouds.js"></script>
+  <script src="themes/theme-clouds_midnight.js"></script>
+  <script src="themes/theme-cobalt.js"></script>
+  <script src="themes/theme-crimson_editor.js"></script>
+  <script src="themes/theme-dawn.js"></script>
+  <script src="themes/theme-dreamweaver.js"></script>
+  <script src="themes/theme-eclipse.js"></script>
+  <script src="themes/theme-github.js"></script>
+  <script src="themes/theme-gob.js"></script>
+  <script src="themes/theme-gruvbox.js"></script>
+  <script src="themes/theme-idle_fingers.js"></script>
+  <script src="themes/theme-iplastic.js"></script>
+  <script src="themes/theme-katzenmilch.js"></script>
+  <script src="themes/theme-kr_theme.js"></script>
+  <script src="themes/theme-kuroir.js"></script>
+  <script src="themes/theme-merbivore.js"></script>
+  <script src="themes/theme-merbivore_soft.js"></script>
+  <script src="themes/theme-mono_industrial.js"></script>
+  <script src="themes/theme-monokai.js"></script>
+  <script src="themes/theme-nord_dark.js"></script>
+  <script src="themes/theme-pastel_on_dark.js"></script>
+  <script src="themes/theme-solarized_dark.js"></script>
+  <script src="themes/theme-solarized_light.js"></script>
+  <script src="themes/theme-sqlserver.js"></script>
+  <script src="themes/theme-terminal.js"></script>
+  <script src="themes/theme-textmate.js"></script>
+  <script src="themes/theme-tomorrow.js"></script>
+  <script src="themes/theme-tomorrow_night.js"></script>
+  <script src="themes/theme-tomorrow_night_blue.js"></script>
+  <script src="themes/theme-tomorrow_night_bright.js"></script>
+  <script src="themes/theme-tomorrow_night_eighties.js"></script>
+  <script src="themes/theme-twilight.js"></script>
+  <script src="themes/theme-vibrant_ink.js"></script>
+  <script src="themes/theme-xcode.js"></script>
+
+
+
+
+  <script>
+    let editor = ace.edit('editor');
+    editor.setTheme('ace/theme/dracula');
+    editor.session.setMode('ace/mode/volant')
+
+    fetch({
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({code})
+    })
+
+    const outputBox = document.getElementById("outputBox"); 
+    const run = document.getElementById("run");
+    button.onclick = async () => {
+    outputBox.innerHTML = await gibOutput(editor.getValue())
+    };
+
+  </script>
+</body>
+</html>
