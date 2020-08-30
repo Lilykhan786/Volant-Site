@@ -69,9 +69,8 @@
         </div>
 	    </header>
 
-  <div id="editor">
-      <div id="outputBox"></div>
-  </div>
+  <div id="editor"></div>
+  <div id="outputBox"></div>
 
   <script src="ace.js"></script>
   <script src="mode-volant.js"></script>
@@ -116,28 +115,40 @@
   <script src="themes/theme-vibrant_ink.js"></script>
   <script src="themes/theme-xcode.js"></script>
 
-
-
-
   <script>
     let editor = ace.edit('editor');
     editor.setTheme('ace/theme/dracula');
     editor.session.setMode('ace/mode/volant')
+	editor.setValue(`
+import "io.vo";
 
-    fetch({
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-    },
-    body: JSON.stringify({code})
-    })
+func main() i32 {
+    io.println("Hello World!");
+    return 0;
+}`.trim());
+	
+    const gibOutput = async(code) => await (await fetch("https://volant-execution-server.apoorvsingal.repl.co/evalthispls", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({ code })
+    })).text();
 
     const outputBox = document.getElementById("outputBox"); 
     const run = document.getElementById("run");
-    button.onclick = async () => {
-    outputBox.innerHTML = await gibOutput(editor.getValue())
+    
+	run.onclick = async () => {
+		outputBox.innerHTML = "Working...";
+   	    const out = await gibOutput(editor.getValue())
+		outputBox.innerHTML = out.replace(/\n/g, "<br/>");
     };
 
+	const themeSelector = document.getElementById("themes");
+
+	themeSelector.onchange = () => {
+		editor.setTheme("ace/theme/"+themeSelector.value);
+	};
   </script>
 </body>
 </html>

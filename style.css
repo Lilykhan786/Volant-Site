@@ -113,7 +113,7 @@ a.nav-link:hover{
     font-weight: bold;
 }
 
-.github{
+.github, .icon{
     font-size: 2em;
     margin:0 40px;
 	cursor: pointer;
@@ -121,11 +121,10 @@ a.nav-link:hover{
 	color: var(--main-fonts-color);
 }
 
-/* .nav-link:hover {
-
-} */
-
-
+.icon:hover{
+    color: var(--decor-color);
+    text-shadow: 0 1px 10px #9900ff62; 
+}
 /*────────────────── 
        footer
 ──────────────────*/
@@ -144,17 +143,6 @@ footer {
 	text-align: center;
 }
 
-.copyright a{
-    color: var(--main-fonts-color);
-	font-size: 1rem;
-	letter-spacing: 1px;
-    text-decoration: none;
-}
-
-/* .copyright a:hover{
-	
-} */
-
 
 
 /*────────────────── 
@@ -162,6 +150,7 @@ footer {
 ──────────────────*/
 .hamburger {
 	display: none;
+	cursor: pointer;
 }
 
 .hamburger div{
@@ -172,20 +161,16 @@ footer {
 	transition:all 0.3s ease;
 }
 
-
-@media only screen and (max-width: 500px) {
-	.nav-bar{
-        display: none;
-	}
-
-	.hamburger{
-		position:absolute;
-		top: 20px;
-		right: 25%;
-		display: block;
-		cursor:pointer;
-		z-index: 5;
-	}	
-
+.toggle .line1{
+	transform: rotate(-45deg) translate(-5px,6px);
 }
+
+.toggle .line2{
+	opacity: 0;
+}
+
+.toggle .line3{
+	transform: rotate(45deg) translate(-5px,-6px);
+}
+
 

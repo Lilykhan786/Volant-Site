@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
-    <link href="../style.css" rel="stylesheet" type="text/css" />
+    <title>Volant Docs</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
     <link href="docs.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
-
+    <link rel="icon" href="../images/logoWhite.png">
   </head>
   <body>
       	<!--─────Header─────-->
@@ -16,7 +16,7 @@
 			<img src="../images/logo.png" alt="logo" />
 		</a>
 		<nav>
-			<ul class="nav-bar">
+			<ul class="nav-bar" id="menu">
 				<div class="bg"></div>
 				<li><a class="nav-link" >Install</a></li>
 				<li><a class="nav-link" href="">Docs</a></li>
@@ -25,7 +25,7 @@
 
             <a class="github" href="https://github.com/volantlang/volant" target="blank_"><i class="fab fa-github"></i></a>
 
-			<div class="hamburger">
+			<div class="hamburger" id="hamburger">
 				<div class="line1"></div>
 				<div class="line2"></div>
 				<div class="line3"></div>
@@ -36,9 +36,9 @@
 
     <div class="docs">
         <nav>
-	        <ul id="docs_Likns"> 
-    		<a class="docs-link" href="#" rel="internal"><li class="item1">one</li></a>
-            <a class="docs-link" href="#" rel="internal"><li class="item2">two</li></a>
+	        <ul id="docs_Links"> 
+    		<a class="docs-link" href="#Functions" rel="internal"><li class="item1">Functions</li></a>
+            <a class="docs-link" href="#Variables" rel="internal"><li class="item2">Variables</li></a>
             <a class="docs-link" href="#" rel="internal"><li class="item3">three</li></a>
             <a class="docs-link" href="#" rel="internal"><li class="item4">four</li></a>
             <a class="docs-link" href="#" rel="internal"><li class="item5">five</li></a>
@@ -53,62 +53,113 @@
         <!--─────Docs─────-->
 
         <main id="main-doc">
-            <section class="main-section" id="">
-                <h2>one</h2>
-                <article>  
-                <p>Lorem ipsum dolor, sit amet consectetur <code>#index.html</code> elit. Autem nemo odit cupiditate consectetur magnam temporibus veniam at repudiandae in iste. Magnam,</p>
-                    <pre-code>if (condition_1) {
-                    statement_1;
-                    } else if (condition_2) {
-                    statement_2;
-                    } else if (condition_n) {
-                    statement_n;
-                    } else {
-                    statement_last;
-                    }</pre-code>
-                </artice>
-                </section>
-            <section class="main-section" id="">
-                <h2>two</h2>
-                <article>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem nemo odit cupiditate consectetur magnam temporibus veniam at repudiandae in iste. Magnam,</p>
-                </article>
-                </section>
-            <section class="main-section" id="">
-                <h2>three</h2>
-                <article>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem nemo odit cupiditate consectetur magnam temporibus veniam at repudiandae in iste. Magnam,</p> 
-                </article>
-                </section>
-            <section class="main-section" id="">
-                <h2>four</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem nemo odit cupiditate consectetur magnam temporibus veniam at repudiandae in iste. Magnam,</p>
-            </section>
-             <section class="main-section" id="">
-                <h2>four</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem nemo odit cupiditate consectetur magnam temporibus veniam at repudiandae in iste. Magnam, repellat! Cum optio sed, quod esse exercitationem quis reiciendis odit expedita, dolore accusamus, illo iste dolores recusandae fuga! Adipisci recusandae est quibusdam et, tenetur libero error illo facilis accusantium, sequi eaque esse dolores deserunt laborum. Enim aperiam atque soluta.
+            <section class="main-section" id="Functions">
+                <h1>Function</h1>
+                <p>Functions in Volant are expressions and can be used as other ordinary values. Function expressions have syntax,</p>
+                    <pre-code><code>
+ func (arg1: type1, arg2: type2) returnType {
+    // do stuff
+ return anExpression;
+                    }
+                    </code></pre-code>
+            
 
-</p>
+                <h2>Declaring a function</h2>
+                <p>Functions can be declared just like ordinary values. The type signature of functions has syntax func (type1, type2, type3) returnType.</p>
+                    <pre-code><code>
+ function: func(type1, type2) returnType;
+ function = func (arg1: type1, arg2: type2) returnType {
+    // do stuff
+ return anExpression;
+ };
+
+    // or use implicit declaration
+ function := func (arg1: type1, arg2: type2) returnType {
+    // do stuff
+ return anExpression;
+ };
+                    </code></pre-code>
+
+                <p>The return type can be omitted from the function expression and type if the function does not return anything. For example,</p>
+                <pre-code><code>
+    // create a function that does not return anything
+ function: func (typ1, type2) = func (arg1: type1, arg2: type2) {
+    // do stuff
+ };
+                </code></pre-code>
+                <hr>
+                <p>Volant also provides one more way of declaring functions,</p>
+                <pre-code><code>
+ func name(arg1: type1, arg2: type2) returnType {
+    //do stuff
+ return anExpression;
+ }
+                </code></pre-code>
+
+                <p>Functions declared with this syntax are constants and cannot be re-initialized. There is a very specific reason for the two syntaxes to exist separately, talking about which is beyond the scope of this page. It is preferred to the second syntax whenever possible.</p> 
+
+                <h2>Invoking a function</h2>
+                <p>Functions are invoked with syntax function(arg1, arg2, arg3) which is an expression that resolves to the value returned by the function.</p> 
+                <hr>
+                <p>Volant allows nesting functions along with support for closures.</p>
+            </section>
+
+            
+            <section class="main-section" id="Variables">
+                <h1>Variables</h1>
+                <p>A variable is a name given to a storage area that the programs can manipulate. Each variable in Volant has a specific type, which determines the size and layout of the variable's memory, the range of values that can be stored within that memory, and the set of operations that can be applied to the variable.</p>
+                <p>The name of a variable can be composed of letters, digits, and the underscore character. It must begin with either a letter or an underscore. Upper and lowercase letters are distinct because Volant is case-sensitive.</p>
             </section>
              <section class="main-section" id="">
-                <h2>four</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem nemo odit cupiditate consectetur magnam temporibus veniam at repudiandae in iste. Magnam,</p>
+                <h2>Declaring a variable</h2>
+                <p>Variables are declared with the syntax variableName: variableType;. For example, var: i32; declares a variable of name var with a type of 32bit signed integer. Multiple variables can be declared in the same statement by separating them with commas. For example,</p>
+                <pre-code><code>
+ var1, var2, var3: u8, u16, u32; // declares var1 of type u8, var2 of type u16 and var3 of type u32
+ var4, var5, var6: u64; // declares var4, var5 and var6 of type u64
+
+ var7, var8, var9: i8, i16; // error: too few types specified in declaration 
+                </code></pre-code>
+
             </section>
              <section class="main-section" id="">
-                <h2>four</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem nemo odit cupiditate consectetur magnam temporibus veniam at repudiandae in iste. Magnam,</p>
+                <h2>Initializing a variable</h2>
+                <p>Initialization is done using the = operator. For example,</p>
+                <pre-code><code>
+ var: i32; // declare var 
+ var = 0; // initialize var with value 0
+                </code></pre-code>
+                <p>Multiple variables can be initialized in the same statement by separating them with commas:</p>
+                <pre-code><code>
+ var1, var2, var3: u8, u16, u32;
+ var1, var2, var3 = 0, 1, 2;
+                </code></pre-code>
+
+                <p>Variables can also be declared and initialized in a single statement using the syntax <code>variable: type = value;.</code> For example, <code>var: i32 = 0;</code>  declares a variable of type i32 and initializes it with value <code>0</code>.</p>
+                <p>Variables can also be implicitly declared and initialized by not supplying the type in the statement using the syntax <code>variable := value</code> In such cases, the variable automatically takes the type of value on the right-hand side. For example, <code>var := 0;</code> creates a variable of type <code>i32</code>with value <code>0</code></p>
+                <p>Multiple variables can be declared and initialized using by separating them with commas. For example,</p>
+                <pre-code><code>
+ var1, var2, var3: type1, type2, type3 = val1, val2, val3; // explicit declaration
+ var4, var5, var6 := val5, val6, val7; // implicit declaration
+                </code></pre-code>
+                <p>Variables can be re-initialized as many times as needed.</p>
+
             </section>
-             <section class="main-section" id="">
-                <h2>four</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem nemo odit cupiditate consectetur magnam temporibus veniam at repudiandae in iste. Magnam, repellat! Cum optio sed, quod esse exercitationem quis reiciendis odit expedita, dolore accusamus, illo iste dolores recusandae fuga! Adipisci recusandae est quibusdam et, tenetur libero error illo facilis accusantium, sequi eaque esse dolores deserunt laborum. Enim aperiam atque soluta.</p>
+
+            <!-- <section class="main-section" id="">
+                <h2></h2>
+                <p></p>
             </section>
-             <section class="main-section" id="">
-                <h2>four</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem nemo odit cupiditate consectetur magnam temporibus veniam at repudiandae in iste. Magnam,</p>
+            <section class="main-section" id="">
+                <h2></h2>
+                <p> </p>
             </section>
+            <section class="main-section" id="">
+                <h2></h2>
+                <p></p>
+            </section> -->
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>
