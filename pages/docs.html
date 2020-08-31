@@ -19,7 +19,7 @@
 			<ul class="nav-bar" id="menu">
 				<div class="bg"></div>
 				<li><a class="nav-link" href="https://github.com/volantlang/volant/wiki/Building-Volant-from-source">Install</a></li>
-				<li><a class="nav-link" href="">Docs</a></li>
+				<li><a class="nav-link" href="spec.html">Docs</a></li>
 				<li><a class="nav-link" href="../editor/editor.html">Try out online</a></li>
 			</ul>
 
@@ -37,59 +37,48 @@
     <div class="docs">
         <nav>
 	        <ul id="docs_Links"> 
-            <a class="docs-link" href="#Arrays" rel="internal"><li class="item3">Arrays</li></a>
-            <a class="docs-link" href="#data_types" rel="internal"><li class="item4">Basic data types</li></a>
-            <a class="docs-link" href="#source" rel="internal"><li class="item5">Building Volant from source</li></a>
-            <a class="docs-link" href="#Control_Flow" rel="internal"><li class="item6">Control Flow</li></a>
-            <a class="docs-link" href="#Enums" rel="internal"><li class="item7">Enums</li></a>
-    		<a class="docs-link" href="#Functions" rel="internal"><li class="item1">Functions</li></a>
-            <a class="docs-link" href="#Heap" rel="internal"><li class="item8">Heap</li></a>
-            <a class="docs-link" href="#Hello_World" rel="internal"><li class="item9">Hello World</li></a>
-            <a class="docs-link" href="#Maps" rel="internal"><li class="item10">Maps</li></a>
-            <a class="docs-link" href="#Mutability" rel="internal"><li class="item10">Mutability</li></a>
-            <a class="docs-link" href="#Pointers" rel="internal"><li class="item10">Pointers</li></a>
-            <a class="docs-link" href="#Structs" rel="internal"><li class="item10">Structs</li></a>
-            <a class="docs-link" href="#Idea" rel="internal"><li class="item10">The idea behind volant</li></a>
-            <a class="docs-link" href="#Tuples" rel="internal"><li class="item10">Tuples</li></a>
-            <a class="docs-link" href="#Unions" rel="internal"><li class="item10">Unions</li></a>
-            <a class="docs-link" href="#Variables" rel="internal"><li class="item2">Variables</li></a>
-            <a class="docs-link" href="#Vectors" rel="internal"><li class="item10">Vectors</li></a>
+            <a class="docs-link" href="#Idea" rel="internal"><li>The idea behind volant</li></a>
+            <a class="docs-link" href="#source" rel="internal"><li>Building Volant from source</li></a>
+            <a class="docs-link" href="#Hello_World" rel="internal"><li>Hello World</li></a>
+            <a class="docs-link" href="#Variables" rel="internal"><li>Variables</li></a>
+            <a class="docs-link" href="#data_types" rel="internal"><li>Basic data types</li></a>
+    		<a class="docs-link" href="#Functions" rel="internal"><li>Functions</li></a>
+            <a class="docs-link" href="#Control_Flow" rel="internal"><li>Control Flow</li></a>
+            <a class="docs-link" href="#Pointers" rel="internal"><li>Pointers</li></a>
+            <a class="docs-link" href="#Arrays" rel="internal"><li>Arrays</li></a>
+            <a class="docs-link" href="#Heap" rel="internal"><li>Heap</li></a>
+            <a class="docs-link" href="#Vectors" rel="internal"><li>Vectors</li></a>
+            <a class="docs-link" href="#Maps" rel="internal"><li>Maps</li></a>
+            <a class="docs-link" href="#Enums" rel="internal"><li>Enums</li></a>
+            <a class="docs-link" href="#Structs" rel="internal"><li>Structs</li></a>
+            <a class="docs-link" href="#Tuples" rel="internal"><li>Tuples</li></a>
+            <a class="docs-link" href="#Unions" rel="internal"><li>Unions</li></a>
+            <a class="docs-link" href="#Promises" rel="internal"><li>Promises</li></a>
+            <a class="docs-link" href="#Closures" rel="internal"><li>Closures</li></a>
+            <a class="docs-link" href="#Mutability" rel="internal"><li>Mutability</li></a>
             </ul>
         </nav>
 
         <!--─────Docs─────-->
         <main id="main-doc">
-            <section class="main-section" id="Arrays">
-                <h1>Arrays</h1>
-                <p>An array is a collection of data items, all of the same types, accessed using a common name.</p>
-                <h2>Usage</h2>
-                <pre-code><code> import "mem.vo" // https://github.com/volantlang/volant/blob/main/lib/mem.vo
+            <section class="main-section" id="Idea">
+                <h1>The idea behind volant</h1>
+                <p>Volant is a general-purpose data-oriented high-level programming language with a focus on speed, power, asynchronicity, and concurrency. Volant is designed with simplicity in mind, allowing both low-level and high-level features with simple and easy to use syntax. Volant is transpiled to c with no or a very thin layer of abstraction over the code you write, which makes it as fast as c in almost all cases.</p>
+                <p>Volant is meant for good programmers. While volant does have a strong focus on simplicity, it does not focus on an easy learning curve, memory safety, or anything else that can restrict its power.</p>
+                <h2>Memory</h2>
+                <p>Volant does not impose any restrictions on memory handling. Users can manipulate raw memory in any way they want. Volant is not intended to be "safe" on the cost of a huge amount of power loss and added complexity. Rather, Volant lets the users decide whether they want to use the not-so-safe features of the language or use a high-level memory-safe abstraction over them.</p>
+                <p>While volant's memory handling is as low level as C's, there are other things Volant focuses on, which, no doubt, reduce the performance a bit, but the power they give to the users is incredible. Examples include closures, async/await, and concurrency primitives. Volant also provides in-built support for high-level data structures like vectors and maps because of how frequently they are used and how useful they are.</p>
+                <h2>Garbage Collection</h2>
+                <p>Volant uses garbage collection. Not freeing memory right is one of the biggest causes of bugs in all languages with manual memory management. Also, in a language focused on asynchronicity, the control flow becomes more and more complex as an application grows and it becomes increasingly harder to keep track of allocated memory. Therefore, we decided to address this problem by having a garbage collector. While, of course, memory can be manually freed (causing the garbage collector to never run), users can choose not to manually free memory and the garbage collector will handle all leaks. Volant's garbage collector can also be used as a leak detector [to be implemented soon]</p>
+                <h2>Errors</h2>
+                <p>Error handling is very important for a programming language. While having compile-time errors in easy and simple, implementing helpful error logging in runtime requires many performance trade-offs. In a thoroughly tested application, the chances of runtime errors are low, but, in most languages, the runtime still keeps track of all possible error cases, which reduces the performance of the application. Most languages consider that trade-off insignificant but Volant is not one of them. The production build of Volant code does not contain any runtime exception handling at all. However, runtime error handling is necessary when the software is in the testing phase, and therefore, Volant provides a debug build which takes care of as many as possible runtime errors and prints helpful error messages and stack traces for easy debugging.</p>
+                <p>Lastly, Volant is not very easy to master, but the power it gives to the users, along with such simplicity, is unmatched.</p>
+                <blockquote>
+                <p>Note: async/await, concurrency primitives, maps, and debug build are not yet implemented but we're working really hard to implement them as soon as possible.</p>
+                </blockquote>
 
- func main() i32 {
-    array: [5]i32; // allocate 10*sizeof(i32) on stack, allocated memory is not initialized
-    
-    mem.set(cast(*void)array, 0, sizeof(array));  // initialize with mem.set
-
-    array2: [5]i32 = {0, 1, 2, 3, 4}; // initialize with array initializers
-
-    array3 := ([5]i32){4, 3, 2, 1, 0}; // allocate and initialize with compound literals
-
-    return 0;
- } </code></pre-code>
-
-                <p>Elements of the array are accessed like <code>array[index]</code> where <code>index</code> is an expression of any numeric type.</p>
-
-                <p>Variables of any arbitrary number of dimensions and length are allowed in Volant, but variable-length arrays, i.e, arrays whose length cannot be determined during compile-time, are not allowed. However, you can use the <a href="#Heap">heap</a> to create arrays of variable length. Functions are also not allowed to return arrays.</p>
-
-            </section>
-            <section class="main-section" id="data_types">
-                <h1>Basic data types</h1>
-                <p>Volant has 13 basic types,<code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code>, <code>i8</code>, <code>i16</code>, <code>i32</code>, <code>i64</code>, <code>f32</code>, <code>f64</code>, <code>bool</code>, <code>uptr</code>, <code>size_t</code>.</p>
-                <p>u<size> is an unsigned integer of size bits, i<size> is a signed integer of <code>size</code> bits, <code>i<size></code> is a floating-point number of <code>size</code> bits, bool is for storing Boolean values (<code>true</code> and <code>false</code>), uptr is an unsigned int large enough to store a memory address and <code>size_t</code> is an unsigned integer large enough to store the <code>size</code> of a block of memory.</p>
-                <p>See <a href="#Vectors"> vectors</a>, <a href="#Maps"> maps</a>, <a href="#Structs"> structs</a>, <a href="#Unions"> unions</a>, <a href="#Enums"> enums</a>, <a href="#Tuples"> tuples</a>, <a href="#Functions"> functions</a>, <a href="#Arrays"> arrays</a>, <a href="#Pointers"> pointers</a> and <a href="#Mutability"> mutability </a>for more on types.
-                </p>
-            </section>
-             <section class="main-section" id="source">
+            </section> 
+            <section class="main-section" id="source">
                 <h1>Building Volant from source</h1>
                 <p>Volant requires a prior installation of go, clang >= 12, libgc-dev, libBlocksRuntime-dev, libuv-dev.</p>
                 <h2>Linux:</h2>
@@ -99,7 +88,98 @@
  <span class="blue">cd</span> volant
  go build -o ./bin/volant ./src</code></pre-code>
             </section> 
-             <section class="main-section" id="Control_Flow">
+            <section class="main-section" id="Hello_World">
+                <h1>Hello World</h1>
+                <pre-code><code> import "io.vo";
+
+ func main() i32 {
+    io.println("Hello World!");
+    return 0;
+ }; </code></pre-code>
+                <h2>How it works?</h2>
+                <ul>
+                    <li><p><code>import "io.vo";</code> tells the compiler to import the <code>io.vo</code> ile which contains the <code>println </code>function</p></li>
+                    <li><p>The execution of a volant program starts from the<code>main()</code>function, therefore, it is necessary to define a <code>main </code>function in your code.</p></li>
+                    <li><p><code>io.println</code>is a function that takes the string<code> Hello World!</code> as input and prints it to the console.</p></li>
+                    <li><p><code>return 0;</code> stops the execution of the program with status code 0.</p></li>
+                </ul>
+                
+            </section>
+            <section class="main-section" id="Variables">
+                <h1>Variables</h1>
+                <p>A variable is a name given to a storage area that the programs can manipulate. Each variable in Volant has a specific type, which determines the size and layout of the variable's memory, the range of values that can be stored within that memory, and the set of operations that can be applied to the variable.</p>
+                <p>The name of a variable can be composed of letters, digits, and the underscore character. It must begin with either a letter or an underscore. Upper and lowercase letters are distinct because Volant is case-sensitive.</p>
+                <h2>Declaring a variable</h2>
+                <p>Variables are declared with the syntax variableName: variableType;. For example, var: i32; declares a variable of name var with a type of 32bit signed integer. Multiple variables can be declared in the same statement by separating them with commas. For example,</p>
+                <pre-code><code> var1, var2, var3: u8, u16, u32; // declares var1 of type u8, var2 of type u16 and var3 of type u32
+ var4, var5, var6: u64; // declares var4, var5 and var6 of type u64
+
+ var7, var8, var9: i8, i16; // error: too few types specified in declaration </code></pre-code>
+                <h2>Initializing a variable</h2>
+                <p>Initialization is done using the <code>=</code> operator. For example,</p>
+                <pre-code><code> var: i32; // declare var 
+ var = 0; // initialize var with value 0 </code></pre-code>
+                <p>Multiple variables can be initialized in the same statement by separating them with commas:</p>
+                <pre-code><code> var1, var2, var3: u8, u16, u32;
+ var1, var2, var3 = 0, 1, 2; </code></pre-code>
+                <hr>
+                <p>Variables can also be declared and initialized in a single statement using the syntax <code>variable: type = value;.</code> For example, <code>var: i32 = 0;</code>  declares a variable of type i32 and initializes it with value <code>0</code>.</p>
+                <p>Variables can also be implicitly declared and initialized by not supplying the type in the statement using the syntax <code>variable := value</code> In such cases, the variable automatically takes the type of value on the right-hand side. For example, <code>var := 0;</code> creates a variable of type <code>i32</code>with value <code>0</code></p>
+                <p>Multiple variables can be declared and initialized using by separating them with commas. For example,</p>
+                <pre-code><code> var1, var2, var3: type1, type2, type3 = val1, val2, val3; // explicit declaration
+ var4, var5, var6 := val5, val6, val7; // implicit declaration
+ </code></pre-code>
+                <p>Variables can be re-initialized as many times as needed.</p>
+            </section>
+            <section class="main-section" id="data_types">
+                <h1>Basic data types</h1>
+                <p>Volant has 13 basic types,<code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code>, <code>i8</code>, <code>i16</code>, <code>i32</code>, <code>i64</code>, <code>f32</code>, <code>f64</code>, <code>bool</code>, <code>uptr</code>, <code>size_t</code>.</p>
+                <p>u<size> is an unsigned integer of size bits, i<size> is a signed integer of <code>size</code> bits, <code>i<size></code> is a floating-point number of <code>size</code> bits, bool is for storing Boolean values (<code>true</code> and <code>false</code>), uptr is an unsigned int large enough to store a memory address and <code>size_t</code> is an unsigned integer large enough to store the <code>size</code> of a block of memory.</p>
+                <p>See <a href="#Vectors"> vectors</a>, <a href="#Maps"> maps</a>, <a href="#Structs"> structs</a>, <a href="#Unions"> unions</a>, <a href="#Enums"> enums</a>, <a href="#Tuples"> tuples</a>, <a href="#Functions"> functions</a>, <a href="#Arrays"> arrays</a>, <a href="#Pointers"> pointers</a> and <a href="#Mutability"> mutability </a>for more on types.
+                </p>
+            </section>
+            <section class="main-section" id="Functions">
+                <h1>Function</h1>
+                <p>Functions in Volant are expressions and can be used as other ordinary values. Function expressions have syntax,</p>
+                    <pre-code><code> func (arg1: type1, arg2: type2) returnType {
+    // do stuff
+                    } </code></pre-code>
+            
+
+                <h2>Declaring a function</h2>
+                <p>Functions can be declared just like ordinary values. The type signature of functions has syntax <code> func (type1, type2, type3) returnType.</code></p>
+                    <pre-code><code> function: func(type1, type2) returnType;
+ function = func (arg1: type1, arg2: type2) returnType {
+    // do stuff
+ };
+
+    // or use implicit declaration
+ function := func (arg1: type1, arg2: type2) returnType {
+    // do stuff
+ }; </code></pre-code>
+
+                <p>The return type can be omitted from the function expression and type if the function does not return anything. For example,</p>
+                <pre-code><code> // create a function that does not return anything
+ function: func (typ1, type2) = func (arg1: type1, arg2: type2) {
+    // do stuff
+ };</code></pre-code>
+                <hr>
+                <p>Volant also provides one more way of declaring functions,</p>
+                <pre-code><code> func name(arg1: type1, arg2: type2) returnType {
+    //do stuff
+} </code></pre-code>
+
+                <p>Functions declared with this syntax are constants and cannot be re-initialized. There is a very specific reason for the two syntaxes to exist separately, talking about which is beyond the scope of this page. It is preferred to the second syntax whenever possible.</p> 
+
+                <h2>Returning a value</h2>
+                <p>A function can return a value using <code>return</code> statements with syntax <code>return anExpression;</code>. The function execution is stopped when it returns a value. <code>return</code> can also be used without an expression to stop the execution of the function in functions that do not return anything.</p>
+
+                <h2>Invoking a function</h2>
+                <p>Functions are invoked with syntax function(arg1, arg2, arg3) which is an expression that resolves to the value returned by the function.</p> 
+                <hr>
+                <p>Volant allows nesting functions along with support for closures.</p>
+            </section> 
+            <section class="main-section" id="Control_Flow">
                 <h1>Control Flow</h1>
                 <p>Control flow of volant code is managed using if-else statements, switch statements, and loops.</p>
                 <h2>If-else statement</h2>
@@ -178,65 +258,48 @@
  } </code></pre-code>
                 <p><code>break </code>and <code>continue </code>work just like c.</p>
             </section> 
-            <section class="main-section" id="Enums">
-                <h1>Enums</h1>
-                <p>Enum is a user-defined data type in Volant. It is mainly used to assign names to integral constants, the names make a program easy to read and maintain.</p>
-                <h2>Defining enum types</h2>
-                <p>Enums are defined using the enum keyword.</p>
-                <pre-code><code> enum Name {
-    Name1 = optionalIntegralValue,
-    Name2 = optionalIntegralValue,
-    ...
-} ; </code></pre-code>
-                <h2>Using enums</h2>
-                <pre-code><code> enum TestEnum { Prop1, Prop2 };
+            <section class="main-section" id="Pointers">
+                <h1>Pointers</h1>
+                <p>Pointers are variables that store the memory address of a value.</p>
+                <h2>Type signature</h2>
+                <p><code>* type</code> is the type for a pointer that stores the memory address of a value of type <code>type</code>.</p>
+                <h2>Accessing the memory address of a value</h2>
+                <p>The memory address of value is accessed using the <code>&amp;</code> operator. For example,</p>
+                <pre-code><code> var: i32 = 0;
+ ptr := &amp;var; // ptr holds the memory address of var </code></pre-code>
+                <h2>Accessing the value at a memory address</h2>
+                <p>The value at a memory address is accessed using the <code>*</code> operator. For example,</p>
+                <pre-code><code> var := 0; // create a i32 of value 0
+ ptr := &var; // create a pointer to var
+ var2 := *ptr; // create var2 of value ptr points to </code></pre-code>
+                <h2>Pointer math</h2>
+                <p>Pointers are numbers, so all number operations are valid on pointers. For example, <code>*(ptr + x)</code> gives the value stored at <code>ptr+x</code> memory address.</p>
+                <p>See <a href="#Heap">heap</a> for more on pointers.</p>
+            </section>
+            <section class="main-section" id="Arrays">
+                <h1>Arrays</h1>
+                <p>An array is a collection of data items, all of the same types, accessed using a common name.</p>
+                <h2>Usage</h2>
+                <pre-code><code> import "mem.vo" // https://github.com/volantlang/volant/blob/main/lib/mem.vo
+
+ func main() i32 {
+    array: [5]i32; // allocate 10*sizeof(i32) on stack, allocated memory is not initialized
     
- var: TestEnum;
- var = TestEnum.Prop1; </code></pre-code>
+    mem.set(cast(*void)array, 0, sizeof(array));  // initialize with mem.set
+
+    array2: [5]i32 = {0, 1, 2, 3, 4}; // initialize with array initializers
+
+    array3 := ([5]i32){4, 3, 2, 1, 0}; // allocate and initialize with compound literals
+
+    return 0;
+ } </code></pre-code>
+
+                <p>Elements of the array are accessed like <code>array[index]</code> where <code>index</code> is an expression of any numeric type.</p>
+
+                <p>Variables of any arbitrary number of dimensions and length are allowed in Volant, but variable-length arrays, i.e, arrays whose length cannot be determined during compile-time, are not allowed. However, you can use the <a href="#Heap">heap</a> to create arrays of variable length. Functions are also not allowed to return arrays.</p>
 
             </section>
-             <section class="main-section" id="Functions">
-                <h1>Function</h1>
-                <p>Functions in Volant are expressions and can be used as other ordinary values. Function expressions have syntax,</p>
-                    <pre-code><code> func (arg1: type1, arg2: type2) returnType {
-    // do stuff
-                    } </code></pre-code>
-            
-
-                <h2>Declaring a function</h2>
-                <p>Functions can be declared just like ordinary values. The type signature of functions has syntax <code> func (type1, type2, type3) returnType.</code></p>
-                    <pre-code><code> function: func(type1, type2) returnType;
- function = func (arg1: type1, arg2: type2) returnType {
-    // do stuff
- };
-
-    // or use implicit declaration
- function := func (arg1: type1, arg2: type2) returnType {
-    // do stuff
- }; </code></pre-code>
-
-                <p>The return type can be omitted from the function expression and type if the function does not return anything. For example,</p>
-                <pre-code><code> // create a function that does not return anything
- function: func (typ1, type2) = func (arg1: type1, arg2: type2) {
-    // do stuff
- };</code></pre-code>
-                <hr>
-                <p>Volant also provides one more way of declaring functions,</p>
-                <pre-code><code> func name(arg1: type1, arg2: type2) returnType {
-    //do stuff
-} </code></pre-code>
-
-                <p>Functions declared with this syntax are constants and cannot be re-initialized. There is a very specific reason for the two syntaxes to exist separately, talking about which is beyond the scope of this page. It is preferred to the second syntax whenever possible.</p> 
-
-                <h2>Returning a value</h2>
-                <p>A function can return a value using <code>return</code> statements with syntax <code>return anExpression;</code>. The function execution is stopped when it returns a value. <code>return</code> can also be used without an expression to stop the execution of the function in functions that do not return anything.</p>
-
-                <h2>Invoking a function</h2>
-                <p>Functions are invoked with syntax function(arg1, arg2, arg3) which is an expression that resolves to the value returned by the function.</p> 
-                <hr>
-                <p>Volant allows nesting functions along with support for closures.</p>
-            </section> 
-             <section class="main-section" id="Heap">
+            <section class="main-section" id="Heap">
                 <h1>Heap</h1>
                 <h2>Allocating memory</h2>
                 <p>Memory on the heap is allocated using the <code>new</code> keyword. For example, <code>new i32</code> allocates an i32 in heap and returns a pointer to the allocated memory.</p>
@@ -257,54 +320,51 @@ It's not necessary to manually free memory because Volant also has garbage colle
    heap.free(a);
 }</code></pre-code>
 
-            </section> 
-             <section class="main-section" id="Hello_World">
-                <h1>Hello World</h1>
-                <pre-code><code> import "io.vo";
-
- func main() i32 {
-    io.println("Hello World!");
-    return 0;
- }; </code></pre-code>
-                <h2>How it works?</h2>
+            </section>
+            <section class="main-section" id="Vectors">
+                <h1>Vectors</h1>
+                <h2>Declaring a vector</h2>
+                <p>A vector is a linear data structure used for storing a group of data with dynamic length.</p>
+                <h2>Type signature</h2>
+                <p>Vectors have type <code>vec type</code>.</p>
+                <h2>Declaring a vector</h2>
+                <pre-code><code> vector: vec type; </code></pre-code>
+                <h2>Initializing a vector</h2>
+                <p>Vectors can be initialized using compound literals.</p>
+                <pre-code><code> vector: vec type;
+ vector = (vec type){el1, el2, el3, el4}; </code></pre-code>
+                <h2>Vector properties and methods</h2>
                 <ul>
-                    <li><p><code>import "io.vo";</code> tells the compiler to import the <code>io.vo</code> ile which contains the <code>println </code>function</p></li>
-                    <li><p>The execution of a volant program starts from the<code>main()</code>function, therefore, it is necessary to define a <code>main </code>function in your code.</p></li>
-                    <li><p><code>io.println</code>is a function that takes the string<code> Hello World!</code> as input and prints it to the console.</p></li>
-                    <li><p><code>return 0;</code> stops the execution of the program with status code 0.</p></li>
-                </ul>
-                
-            </section> 
-             <section class="main-section" id="Maps">
+                    <li><p><code>vector.length</code> returns the number of elements in the vector.</p></li>
+                    <li><p><code>vector.capacity</code> returns the maximum number of elements that the vector can have. Appending more elements than the capacity of the vector reallocates the vector with a higher capacity.</p></li>
+                    <li><p><code>vector.push(value)</code> appends <code>value</code> to the end of the vector.</p></li>
+                    <li><p><code>vector.pop()</code> removes and returns the last value of the vector.</p></li>
+                    <li><p><code>vector.clone()</code> creates and returns a copy of the vector.</p></li>
+                    <li><p><code>vector.concat(anotherVector)</code> appends all elements of <code>anotherVector</code> to the end of <code>vector</code>. Both vectors must have the same type.</p></li>
+                    <li><p><code>vector.free()</code> frees the vector from the heap. It is not necessary to manually free vectors because Volant also has garbage collection.</p></li>
+                    </ul>
+            </section>
+            <section class="main-section" id="Maps">
                 <h1>Maps</h1>
                 <p>Maps aren't implemented yet. We'll update this page when maps are released.</p>
             </section>
-            <section class="main-section" id="Mutability">
-                <h1>Mutability</h1>
-                <p>Variables in Volant are mutable by default, but they can be made immutable by using the <code>const</code> keyword with types. For example, <code>a: const u8 = 0;</code> declares <code>a</code> as immutable and re-assignments to the variable are disallowed by the compiler.</p>
-                <p><code>const</code> can also be used in compound types to make their specific parts constant. For example, declaring a variable as <code>var: * const u8 = aPtr;</code> allows you to assign to var (<code>var = anotherPointer;</code>) but forbids you from assigning to the value <code>var</code> points to, i.e, <code>*var = x;</code> will throw a compile-time error. The same goes for arrays, vectors, maps, and structs.</p>
-                <p>You can typecast a non-constant value to a <code>const</code> value to make it immutable, but typecasting a constant value to non-constant is not allowed. For example, you cannot pass a constant value as an argument to a function that accepts a non-constant value, but you can pass a non-constant value to a function that accepts a constant value.</p>
-                <p><code>const</code> does not ensure that the data of a block of memory will remain constant throughout the code, it only means that the current reference to the value does not have the permission to modify it, some other parts of code may still be able to modify it.</p>
-                <p>Enums are always constants.</p>
-            </section> 
-             <section class="main-section" id="Pointers">
-                <h1>Pointers</h1>
-                <p>Pointers are variables that store the memory address of a value.</p>
-                <h2>Type signature</h2>
-                <p><code>* type</code> is the type for a pointer that stores the memory address of a value of type <code>type</code>.</p>
-                <h2>Accessing the memory address of a value</h2>
-                <p>The memory address of value is accessed using the <code>&amp;</code> operator. For example,</p>
-                <pre-code><code> var: i32 = 0;
- ptr := &amp;var; // ptr holds the memory address of var </code></pre-code>
-                <h2>Accessing the value at a memory address</h2>
-                <p>The value at a memory address is accessed using the <code>*</code> operator. For example,</p>
-                <pre-code><code> var := 0; // create a i32 of value 0
- ptr := &var; // create a pointer to var
- var2 := *ptr; // create var2 of value ptr points to </code></pre-code>
-                <h2>Pointer math</h2>
-                <p>Pointers are numbers, so all number operations are valid on pointers. For example, <code>*(ptr + x)</code> gives the value stored at <code>ptr+x</code> memory address.</p>
-                <p>See <a href="#Heap">heap</a> for more on pointers.</p>
-            </section> 
+            <section class="main-section" id="Enums">
+                <h1>Enums</h1>
+                <p>Enum is a user-defined data type in Volant. It is mainly used to assign names to integral constants, the names make a program easy to read and maintain.</p>
+                <h2>Defining enum types</h2>
+                <p>Enums are defined using the enum keyword.</p>
+                <pre-code><code> enum Name {
+    Name1 = optionalIntegralValue,
+    Name2 = optionalIntegralValue,
+    ...
+} ; </code></pre-code>
+                <h2>Using enums</h2>
+                <pre-code><code> enum TestEnum { Prop1, Prop2 };
+    
+ var: TestEnum;
+ var = TestEnum.Prop1; </code></pre-code>
+
+            </section>
              <section class="main-section" id="Structs">
                 <h1>Structs</h1>
                 <p>A struct is a user-defined data type that allows combining data items of different kinds.</p>
@@ -393,24 +453,7 @@ It's not necessary to manually free memory because Volant also has garbage colle
                 <hr>
                 <p>Structs are allocated on stack by default. See <a href="#Heap">heap</a> for details on how to allocate structs on the heap.</p>
             </section> 
-             <section class="main-section" id="Idea">
-                <h1>The idea behind volant</h1>
-                <p>Volant is a general-purpose data-oriented high-level programming language with a focus on speed, power, asynchronicity, and concurrency. Volant is designed with simplicity in mind, allowing both low-level and high-level features with simple and easy to use syntax. Volant is transpiled to c with no or a very thin layer of abstraction over the code you write, which makes it as fast as c in almost all cases.</p>
-                <p>Volant is meant for good programmers. While volant does have a strong focus on simplicity, it does not focus on an easy learning curve, memory safety, or anything else that can restrict its power.</p>
-                <h2>Memory</h2>
-                <p>Volant does not impose any restrictions on memory handling. Users can manipulate raw memory in any way they want. Volant is not intended to be "safe" on the cost of a huge amount of power loss and added complexity. Rather, Volant lets the users decide whether they want to use the not-so-safe features of the language or use a high-level memory-safe abstraction over them.</p>
-                <p>While volant's memory handling is as low level as C's, there are other things Volant focuses on, which, no doubt, reduce the performance a bit, but the power they give to the users is incredible. Examples include closures, async/await, and concurrency primitives. Volant also provides in-built support for high-level data structures like vectors and maps because of how frequently they are used and how useful they are.</p>
-                <h2>Garbage Collection</h2>
-                <p>Volant uses garbage collection. Not freeing memory right is one of the biggest causes of bugs in all languages with manual memory management. Also, in a language focused on asynchronicity, the control flow becomes more and more complex as an application grows and it becomes increasingly harder to keep track of allocated memory. Therefore, we decided to address this problem by having a garbage collector. While, of course, memory can be manually freed (causing the garbage collector to never run), users can choose not to manually free memory and the garbage collector will handle all leaks. Volant's garbage collector can also be used as a leak detector [to be implemented soon]</p>
-                <h2>Errors</h2>
-                <p>Error handling is very important for a programming language. While having compile-time errors in easy and simple, implementing helpful error logging in runtime requires many performance trade-offs. In a thoroughly tested application, the chances of runtime errors are low, but, in most languages, the runtime still keeps track of all possible error cases, which reduces the performance of the application. Most languages consider that trade-off insignificant but Volant is not one of them. The production build of Volant code does not contain any runtime exception handling at all. However, runtime error handling is necessary when the software is in the testing phase, and therefore, Volant provides a debug build which takes care of as many as possible runtime errors and prints helpful error messages and stack traces for easy debugging.</p>
-                <p>Lastly, Volant is not very easy to master, but the power it gives to the users, along with such simplicity, is unmatched.</p>
-                <blockquote>
-                <p>Note: async/await, concurrency primitives, maps, and debug build are not yet implemented but we're working really hard to implement them as soon as possible.</p>
-                </blockquote>
-
-            </section> 
-             <section class="main-section" id="Tuples">
+            <section class="main-section" id="Tuples">
                 <h1>Tuples</h1>
                 <p>A tuple is a user-defined data type that stores a group of values of different types.</p>
                 <h2>Defining a tuple type</h2>
@@ -426,7 +469,7 @@ It's not necessary to manually free memory because Volant also has garbage colle
                 <hr>
                 <p>Tuples are allocated on stack by default. See <a href="https://github.com/volantlang/volant/wiki/Heap">heap</a> for details on how to allocate tuples on the heap.</p>
             </section> 
-             <section class="main-section" id="Unions">
+            <section class="main-section" id="Unions">
                 <h1>Unions</h1>
                 <p>A union a user-defined data type that allows you to store multiple data types in the same memory location.</p>
                 <h2>Defining a union type</h2>
@@ -447,56 +490,122 @@ It's not necessary to manually free memory because Volant also has garbage colle
  var.val2 = 0;
  var.val1; // 0 </code></pre-code>
             </section> 
-            <section class="main-section" id="Variables">
-                <h1>Variables</h1>
-                <p>A variable is a name given to a storage area that the programs can manipulate. Each variable in Volant has a specific type, which determines the size and layout of the variable's memory, the range of values that can be stored within that memory, and the set of operations that can be applied to the variable.</p>
-                <p>The name of a variable can be composed of letters, digits, and the underscore character. It must begin with either a letter or an underscore. Upper and lowercase letters are distinct because Volant is case-sensitive.</p>
-                <h2>Declaring a variable</h2>
-                <p>Variables are declared with the syntax variableName: variableType;. For example, var: i32; declares a variable of name var with a type of 32bit signed integer. Multiple variables can be declared in the same statement by separating them with commas. For example,</p>
-                <pre-code><code> var1, var2, var3: u8, u16, u32; // declares var1 of type u8, var2 of type u16 and var3 of type u32
- var4, var5, var6: u64; // declares var4, var5 and var6 of type u64
+            <section class="main-section" id="Promises">
+                <h1>Promises</h1>
+                <p>A promise represents the state on an async task. A promise can have two states, pending or resolved. A promise resolves to a value of its base type.</p>
+                <pre-code><code> func main() {
+    prom := (promise u8){}; // create a promise that resolves to a value of type u8
 
- var7, var8, var9: i8, i16; // error: too few types specified in declaration </code></pre-code>
-                <h2>Initializing a variable</h2>
-                <p>Initialization is done using the <code>=</code> operator. For example,</p>
-                <pre-code><code> var: i32; // declare var 
- var = 0; // initialize var with value 0 </code></pre-code>
-                <p>Multiple variables can be initialized in the same statement by separating them with commas:</p>
-                <pre-code><code> var1, var2, var3: u8, u16, u32;
- var1, var2, var3 = 0, 1, 2; </code></pre-code>
-                <hr>
-                <p>Variables can also be declared and initialized in a single statement using the syntax <code>variable: type = value;.</code> For example, <code>var: i32 = 0;</code>  declares a variable of type i32 and initializes it with value <code>0</code>.</p>
-                <p>Variables can also be implicitly declared and initialized by not supplying the type in the statement using the syntax <code>variable := value</code> In such cases, the variable automatically takes the type of value on the right-hand side. For example, <code>var := 0;</code> creates a variable of type <code>i32</code>with value <code>0</code></p>
-                <p>Multiple variables can be declared and initialized using by separating them with commas. For example,</p>
-                <pre-code><code> var1, var2, var3: type1, type2, type3 = val1, val2, val3; // explicit declaration
- var4, var5, var6 := val5, val6, val7; // implicit declaration
- </code></pre-code>
-                <p>Variables can be re-initialized as many times as needed.</p>
-            </section>
-            <section class="main-section" id="Vectors">
-                <h1>Vectors</h1>
-                <h2>Declaring a vector</h2>
-                <p>A vector is a linear data structure used for storing a group of data with dynamic length.</p>
-                <h2>Type signature</h2>
-                <p>Vectors have type <code>vec type</code>.</p>
-                <h2>Declaring a vector</h2>
-                <pre-code><code> vector: vec type; </code></pre-code>
-                <h2>Initializing a vector</h2>
-                <p>Vectors can be initialized using compound literals.</p>
-                <pre-code><code> vector: vec type;
- vector = (vec type){el1, el2, el3, el4}; </code></pre-code>
-                <h2>Vector properties and methods</h2>
-                <ul>
-                    <li><p><code>vector.length</code> returns the number of elements in the vector.</p></li>
-                    <li><p><code>vector.capacity</code> returns the maximum number of elements that the vector can have. Appending more elements than the capacity of the vector reallocates the vector with a higher capacity.</p></li>
-                    <li><p><code>vector.push(value)</code> appends <code>value</code> to the end of the vector.</p></li>
-                    <li><p><code>vector.pop()</code> removes and returns the last value of the vector.</p></li>
-                    <li><p><code>vector.clone()</code> creates and returns a copy of the vector.</p></li>
-                    <li><p><code>vector.concat(anotherVector)</code> appends all elements of <code>anotherVector</code> to the end of <code>vector</code>. Both vectors must have the same type.</p></li>
-                    <li><p><code>vector.free()</code> frees the vector from the heap. It is not necessary to manually free vectors because Volant also has garbage collection.</p></li>
+    prom.then(func (val: u8) {
+        $printf("%i\n", val);
+    });
+    
+    $printf("hehe\n");
+
+    prom.resolve(10); // resolve the promise with value 10
+    return 0;
+} </code></pre-code>
+                <p>The above program outputs,</p>
+                <pre-code><code> hehe
+ 10</code></pre-code>
+                    <h2>Promise properties and methods</h2>
+                    <ul>
+                    <li><p><code>prom.pending</code> is a <code>bool</code> which is <code>true</code> if <code>prom</code> hasn't resolved yet.</p></li>
+                    <li><p><code>prom.resolved</code> is a <code>bool</code> which is <code>true</code> if <code>prom</code> has already been resolved.</p></li>
+                    <li><p><code>prom.then(callback)</code> invokes <code>callback</code> when <code>prom</code> is resolved. It can be used multiple times and all the callbacks are invoked when <code>prom</code> is resolved.</p></li>
+                    <li><p><code>prom.resolve(value)</code> resolves the promise with value <code>value</code>. Using <code>prom.resolve</code> is not allowed if <code>prom</code> is a <code>const promise</code>.</p></li>
                     </ul>
-            </section>
+                    <blockquote>
+                    <p>Note: Using the dollar sign to access c APIs is not recommended and will be depreciated soon. See [link] for more info.</p>
+                    </blockquote>
+            </section>  
+            <section class="main-section" id="Closures">
+                <h1>Closures</h1>
+                <p>A closure gives users access to an outer function’s scope from an inner function.</p>
+                <pre-code><code>func test(function: func() i32) i32 {
+    return function();
+ }
 
+ func main() i32 {
+    x := 0;
+    y := test(func() i32 { return x; });
+    return y; // 0
+ }</code></pre-code>
+                <h2>Accessing scope variables after the function has returned</h2>
+                <pre-code><code>import "callback.vo";
+
+ func test() func() i32 {
+    x := 0; 
+    function := func() i32  {
+        return x;
+    };
+    return callback.copy(function);
+}
+
+ func main() i32 {
+    return test()(); // 0
+ }</code></pre-code>
+                <p>Volant functions can capture variables from their outer scope. However, for making them as fast as possible, captures are stored on the stack by default. <code>callback.copy</code> copies all the captured variables to the heap so that they can be used even after the function goes out of the stack.</p>
+                <h2>Mutability of outer scope's variables</h2>
+                <p>The captured variables are not mutable inside the inner scope. For example, the following example will throw a compile-time error.</p>
+                <pre-code><code>import "callback.vo";
+
+ func test() func() i32 {
+    x := 0; 
+    function := func() i32  {
+        return x++; // error: x is not assignable
+    };
+    return callback.copy(function);
+ }
+
+ func main() i32 {
+    return test()(); // 0
+ }</code></pre-code>
+                <h2>Mutating outer scope's variables</h2>
+                <p>Variables of the outer scope can be made mutable by using the <code>capture</code> flag with the variable type.</p>
+                <pre-code><code>import "callback.vo";
+
+ func test() func() i32 {
+    x: capture i32 = 0; 
+    function := func() i32  {
+        return x++; // no errors
+    };
+    return callback.copy(function);
+ }
+
+ func main() i32 {
+    return test()(); // 0
+ }</code></pre-code>
+                <p>Variables created using the <code>capture</code> flag are allocated on the heap and therefore the <code>capture</code> flag should only be used when necessary.</p>
+                <hr>
+                <p>You can use <code>callback.free</code> to free functions that were allocated on the heap using the <code>callback.copy</code> function.</p>
+                <pre-code><code>import "callback.vo";
+
+ func test() func() i32 {
+    x: capture i32 = 0; 
+    function := func() i32  {
+        return x++; // no errors
+    };
+    return callback.copy(function);
+ }
+
+ func main() i32 {
+    function := test();
+    val := function();
+    callback.free(function);
+    return val;
+ }</code></pre-code>
+                <p>Freeing functions is optional because Volant also has garbage collection.</p>
+            </section>  
+            <section class="main-section" id="Mutability">
+                <h1>Mutability</h1>
+                <p>Variables in Volant are mutable by default, but they can be made immutable by using the <code>const</code> keyword with types. For example, <code>a: const u8 = 0;</code> declares <code>a</code> as immutable and re-assignments to the variable are disallowed by the compiler.</p>
+                <p><code>const</code> can also be used in compound types to make their specific parts constant. For example, declaring a variable as <code>var: * const u8 = aPtr;</code> allows you to assign to var (<code>var = anotherPointer;</code>) but forbids you from assigning to the value <code>var</code> points to, i.e, <code>*var = x;</code> will throw a compile-time error. The same goes for arrays, vectors, maps, and structs.</p>
+                <p>You can typecast a non-constant value to a <code>const</code> value to make it immutable, but typecasting a constant value to non-constant is not allowed. For example, you cannot pass a constant value as an argument to a function that accepts a non-constant value, but you can pass a non-constant value to a function that accepts a constant value.</p>
+                <p><code>const</code> does not ensure that the data of a block of memory will remain constant throughout the code, it only means that the current reference to the value does not have the permission to modify it, some other parts of code may still be able to modify it.</p>
+                <p>Enums are always constants.</p>
+            </section>
+            
         </main>
     </div>
 
