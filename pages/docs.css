@@ -3,10 +3,39 @@
 	padding:0;
 }
 
+h1{
+    font-size: 35px;  
+    text-transform: capitalize;
+    margin: 20px 0;
+    font-family: var(--main-font-family);
+}
+
+h2{
+    text-transform: capitalize;
+    border-bottom: 1px solid #F6F6F6;
+    padding-bottom:.3em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+p{
+    padding: 10px 0;
+}
+
 .docs {
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
+}
+
+.red{
+    color: red;
+}
+
+.blue{
+    color: #0075fc;
 }
 
 #docs_Links{
@@ -41,36 +70,22 @@ nav ul{
 #main-doc{
     margin:0 auto;
     height: 100%;
-    max-width: 700px;
+    max-width: 800px;
     position: relative;
     left: 100px;
     top:70px;
-    /* padding: 40px ;   */
 }
+
 .main-section{
-    /* padding: 20px 0; */
-}
-
-.main-section p{
-
-}
-
-h1, h2{
-    text-transform: capitalize;
-    border-bottom: 1px solid #F6F6F6;
-    padding-bottom:.3em;
-    margin-top: 24px;
-    margin-bottom: 16px;
-    font-weight: 600;
-    line-height: 1.25
+    padding-bottom: 40px;
 }
 
 code{
     color: var(--decor-color);
     background: var(--header-background);
     border-radius: 2px;
-    /* white-space: nowrap; */
 }
+
 pre-code{
     margin-top: 20px;
     overflow-x: auto;
@@ -87,28 +102,22 @@ hr{
     height: .25em;
     padding: 0;
     margin: 24px 0;
-    background: var(--header-background);
+    background: #e1e4e8;
     border: 0;
 }
 
-/* docs-link{
-
-}
-#main-doc section{
-
-}
-.main-section article{
-
-}
-main{
-
+blockquote {
+    padding: 0 1em;
+    color: gray;
+    border-left: .25em solid #F6F6F6;
 }
 
-article {
+a{
+    color: var(--decor-color);
+    text-decoration: none;
+}
 
-} */
-
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1100px) {
     #main-doc{
     width: 65%;
 }
@@ -121,7 +130,6 @@ article {
         transition: all 0.4s cubic-bezier(0.4, 0, 0, 1);
         -webkit-transform: translate(-280px, 0); 
         transform: translate(-280px, 0);
-        /**/
     }
 
     #main-doc{
@@ -132,17 +140,6 @@ article {
 
 	.nav-bar{
         display: none;
-        /* padding-top: 30px;
-        padding-left: 30px;
-        position: absolute;
-        width: 200px;
-        height: 80px;
-        top: 60px;
-        left: 0px;
-        display: flex;
-        flex-direction: column;
-       -webkit-transform: translate(-280px, 0); 
-        transform: translate(-280px, 0); */
 	}
 
     .logo img{
