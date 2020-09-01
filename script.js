@@ -1,9 +1,9 @@
-
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
 const docsLinks = document.getElementById("docs_Links");
 
 hamburger.onclick = () => {
+	console.log("hehe")
 	hamburger.classList.toggle("toggle");
 	/*
 	if(menu.style.transform == "translate(0)"){
