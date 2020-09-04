@@ -24,6 +24,10 @@ body{
     background: var(--background);
 }
 
+/*────────────────── 
+       Fonts
+──────────────────*/
+
 h1{
     font-family: var(--style-font-family);
 }
@@ -35,6 +39,10 @@ h2,h3,h4,h5,h6{
 p{
     font-family: var(--main-font-family);
 }
+
+/*────────────────── 
+       Buttons
+──────────────────*/
 
 button{
     border-radius: 50px;
@@ -74,7 +82,7 @@ button:focus{
 }
 
 /*────────────────── 
-       header
+       Header
 ──────────────────*/
 
 header{
@@ -111,7 +119,6 @@ a.nav-link{
 	font-family: var(--main-font-family);
 	cursor: pointer;
 	text-transform: capitalize;
-    transition: 0.1s;
 }
 
 a.nav-link:hover{
@@ -135,7 +142,7 @@ a.nav-link:hover{
 }
 
 /*────────────────── 
-       footer
+       Footer
 ──────────────────*/
 
 footer {
@@ -143,19 +150,18 @@ footer {
     bottom: 0;
 	width: 100%;
 	height: 100%;
-    font-family: var(--main-font-family);
 }
 
 .copyright {
     color: var(--main-fonts-color);
-	font-size: 1em;
+	font-size: 0.9em;
 	line-height: 40px;
 	text-align: center;
     font-family: var(--main-font-family);
 }
 
 /*────────────────── 
-     hamburger
+     Hamburger
 ──────────────────*/
 
 .hamburger {

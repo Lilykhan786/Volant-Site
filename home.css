@@ -8,11 +8,16 @@
     height: 100%;
 }
 
+/*────────────────── 
+       Hero
+──────────────────*/
+
+
 .hero{
     position: relative;
     margin-top:70px;
     width: 100%;
-    height: 300px;
+    height: 350px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -24,13 +29,14 @@
     font-size: 5em;
     letter-spacing: 1.6px;
     color: #333;
-    background: linear-gradient(to top, #000000, #363636, #a78d8d);
+    background: linear-gradient(to top, #000000, #363636, #858383);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     z-index: 1;
 }
 
 .hero p{
+    margin: 10px 0;
     font-size: 1.1em;
     z-index: 1;
 }
@@ -59,6 +65,10 @@ h3{
 
 }
 
+/*────────────────── 
+       About
+──────────────────*/
+
 .about h4{
     font-size: 1.1em;
 }
@@ -74,12 +84,17 @@ h3{
 
 .why{
     margin: 40px 0;
+    padding-bottom: 40px;
 }
+
+/*────────────────── 
+    Bottom Links
+──────────────────*/
 
 .bottom{
     width: 100%;
     height: 200px;
-    padding: 20px 0;
+    padding: 30px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,7 +118,7 @@ h3{
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 10px;
+    margin: 20px;
 }
 
 .links li{
@@ -129,6 +144,10 @@ h3{
 a{
     text-decoration: none;
 }
+
+/*────────────────── 
+  Bubble Animation
+──────────────────*/
 
 .ok div {
     position: relative;
@@ -249,7 +268,15 @@ a{
   }
 }
 
+/*────────────────── 
+   Media Queries
+──────────────────*/
+
+
 @media screen and (min-width: 1070px){
+    .about{
+        margin:80px;
+    }
     .bottom-btns section{
         width: 350px;
  }

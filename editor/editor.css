@@ -5,6 +5,10 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+/*────────────────── 
+      Editor
+──────────────────*/
+
 #editor {
     position: absolute;
     top: 60px;
@@ -15,6 +19,10 @@ body{
     border: 10px solid transparent;
     box-sizing: border-box;
 }
+
+/*────────────────── 
+      header
+──────────────────*/
 
 header{
 	margin: 0;
@@ -37,6 +45,10 @@ header{
 a{
     text-decoration: none;
 }
+
+/*────────────────── 
+      Buttons
+──────────────────*/
 
 #run{
     color: #efefef;
@@ -105,6 +117,10 @@ select#themes:focus{
     outline: none;
 }
 
+/*────────────────── 
+    Result Box
+──────────────────*/
+
 #outputBox{
     position: absolute;
     bottom: 0;
@@ -119,6 +135,10 @@ select#themes:focus{
     border: 20px solid transparent;
     box-sizing: border-box;
 }
+
+/*────────────────── 
+    Media Query
+──────────────────*/
 
 @media (max-width: 500px) {
     .themeOption  {
