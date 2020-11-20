@@ -12,7 +12,6 @@
        Hero
 ──────────────────*/
 
-
 .hero{
     position: relative;
     margin-top:70px;
@@ -22,7 +21,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: var(--header-background);
+    background-image: 
+        radial-gradient(circle at 3% 47%, rgba(226, 182, 250, 0.2) 0%,  rgba(235, 207, 250, 0.2) 25%,transparent 25%, transparent 100%),
+        radial-gradient(circle at 47% 23%, rgba(235, 207, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 3%,transparent 3%, transparent 100%),
+        radial-gradient(circle at 37% 33%, rgba(235, 207, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 5%,transparent 3%, transparent 100%),
+        radial-gradient(circle at 60% 70%, rgba(226, 182, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 16%,transparent 16%, transparent 100%),
+        radial-gradient(circle at 90% 20%, rgba(226, 182, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 12%,transparent 12%, transparent 100%),
+        radial-gradient(circle at 55% 7%, rgba(235, 207, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 7%,transparent 7%, transparent 100%),
+        radial-gradient(circle at 80% 90%, rgba(226, 182, 250, 0.2) 0%, rgba(226, 182, 250, 0.2) 8%,transparent 3%, transparent 100%),
+        radial-gradient(circle at 36% 90%,  rgba(226, 182, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 6%, transparent 2%, rgba(233, 233, 233, 0.8));
+          /* background: var(--header-background); */
 }
 
 .hero h1{
@@ -46,19 +54,6 @@
     z-index: 1;
 }
 
-.about{
-    text-align: center;
-    margin: 40px 5px;
-}
-
-.about section {
-    padding: 10px;
-    width: 33%;
-    display: inline-block;
-    vertical-align: top;
-    box-sizing: border-box;
-}
-
 h3{
     font-size: 2em;
     margin: 10px;
@@ -69,22 +64,40 @@ h3{
        About
 ──────────────────*/
 
+.about{
+    text-align: center;
+    margin: 40px;
+    
+}
+
+.about section {
+    padding: 10px;
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.points{
+    margin: 30px;
+}
+
+section p{
+    text-align: justify;
+    padding: 20px;
+}
+
 .about h4{
     font-size: 1.1em;
 }
 
 .about p{
     font-size: 1em;
-    margin: 5px;
-}
-
-.what{
-    padding: 40px;
+    margin: 10px 0;
 }
 
 .why{
-    margin: 40px 0;
-    padding-bottom: 40px;
+    margin-top: 100px;
 }
 
 /*────────────────── 
@@ -93,14 +106,22 @@ h3{
 
 .bottom{
     width: 100%;
-    height: 200px;
+    height: 300px;
     padding: 30px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
-    background: var(--header-background);
+    background-image: 
+        radial-gradient(circle at 3% 47%, rgba(226, 182, 250, 0.2) 0%,  rgba(235, 207, 250, 0.2) 25%,transparent 25%, transparent 100%),
+        radial-gradient(circle at 47% 23%, rgba(235, 207, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 3%,transparent 3%, transparent 100%),
+        radial-gradient(circle at 37% 33%, rgba(235, 207, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 5%,transparent 3%, transparent 100%),
+        radial-gradient(circle at 60% 70%, rgba(226, 182, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 16%,transparent 16%, transparent 100%),
+        radial-gradient(circle at 90% 20%, rgba(226, 182, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 12%,transparent 12%, transparent 100%),
+        radial-gradient(circle at 55% 7%, rgba(235, 207, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 7%,transparent 7%, transparent 100%),
+        radial-gradient(circle at 80% 90%, rgba(226, 182, 250, 0.2) 0%, rgba(226, 182, 250, 0.2) 8%,transparent 3%, transparent 100%),
+        radial-gradient(circle at 36% 90%,  rgba(226, 182, 250, 0.2) 0%, rgba(235, 207, 250, 0.2) 6%, transparent 2%, rgba(233, 233, 233, 0.8));  
 }
 
 .bottom-btns{
@@ -132,7 +153,7 @@ h3{
 }
 
 .bottom h4{
-    margin: 10px;
+    margin: 20px 10px;
 }
 
 .links li:hover{
@@ -275,7 +296,7 @@ a{
 
 @media screen and (min-width: 1070px){
     .about{
-        margin:80px;
+        margin:100px;
     }
     .bottom-btns section{
         width: 350px;
@@ -290,8 +311,14 @@ a{
     margin:10px 0;
     }
 }
+/* 
+@media screen and (max-width: 1200px){
+.about{
+        margin:80px;
+    }
+} */
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1000px){
     .about section {   
         margin: 0 auto;
         width: 340px;
@@ -305,19 +332,9 @@ a{
     .bottom-btns section{
         margin: 10px;
   }
+
 } 
 
-@media screen and (max-width: 400px){
-    .hero h1{
-        font-size: 4em;
-    }
-    .hero p{
-       font-size: 1em;
-    }
-    .about section { 
-        width: 100%;
-    }
-}
 
 @media only screen and (max-width: 500px) {
 	.nav-bar{
@@ -351,3 +368,16 @@ a{
 		background: var(--header-background);
     }
 }
+
+@media screen and (max-width: 400px){
+    .hero h1{
+        font-size: 4em;
+    }
+    .hero p{
+       font-size: 1em;
+    }
+    .about section { 
+        width: 100%;
+    }
+    
+} 

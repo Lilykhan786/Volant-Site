@@ -136,9 +136,9 @@ a.nav-link:hover{
     transition: 0.3s;
 }
 
-.icon:hover{
+.github:hover, .icon:hover{
     color: var(--decor-color);
-    text-shadow: 0 1px 10px #9900ff62; 
+    /* text-shadow: 0 1px 10px #9900ff62;  */
 }
 
 /*────────────────── 
@@ -153,6 +153,7 @@ footer {
 }
 
 .copyright {
+    margin: 10px 0;
     color: var(--main-fonts-color);
 	font-size: 0.9em;
 	line-height: 40px;
